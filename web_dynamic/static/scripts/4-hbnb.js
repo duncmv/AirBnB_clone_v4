@@ -19,7 +19,7 @@ $(document).ready(function () {
     $('div.amenities h4').text(amenities.sort().join(', '));
   });
 
-  $.get('http://localhost:5001/api/v1/status/', (data) => {
+  $.get('http://0.0.0.0:5001/api/v1/status/', (data) => {
     if (data.status === 'OK') {
       $('div#api_status').addClass('available');
     } else {
@@ -37,7 +37,7 @@ $(document).ready(function () {
 
 function getPlaces (filters = {}) {
   $.post({
-    url: 'http://localhost:5001/api/v1/places_search',
+    url: 'http://0.0.0.0:5001/api/v1/places_search',
     data: JSON.stringify(filters),
     headers: {
       'Content-Type': 'application/json'
